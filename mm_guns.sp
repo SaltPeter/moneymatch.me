@@ -17,9 +17,6 @@ public Action Command_Guns(int client, int args) {
 /*
 * Once the player picks a team and spawns, they're given the "!guns" notification.
 * aka after the player has been set up
-* When a player spawns on their respective team, they're given the default pistol and a knife.
-* Command shortcuts are: !m4a4 !m4a1 !m4a1s !m4a1-s !m4 !m4silenced !ak47
-* !usp45 !usp-45 !usp !p2000 !p2k !glock !deagle
 */
 public Action GunHandler(int client) {
 	PrintToChat(client, "\x01\x0B\x05[MM]\x01 Type \x05!guns\x01 to select your loadout.");
