@@ -15,3 +15,11 @@ public Plugin:myinfo = {
 public OnPluginStart() {
 
 }
+
+public Action:Command_Ready(client, args) {
+
+}
+
+public Action:Command_Unready(client, args) {
+
+}

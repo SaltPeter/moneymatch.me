@@ -47,8 +47,6 @@ public OnPluginStart() {
 	RegConsoleCmd("sm_ready", Command_Ready, "Readies the player");
 	// Set !unready command.
 	RegConsoleCmd("sm_unready", Command_Unready, "Unreadies the player");
-	
-	
 }
 
 public Action OnClientSayCommand(int client, const char[] command, const char[] sArgs) {
@@ -56,17 +54,22 @@ public Action OnClientSayCommand(int client, const char[] command, const char[] 
 
 	// Pauses the game
 	if (strcmp(sArgs[0], ".pause", false) == 0 || strcmp(sArgs[0], "!pause", false) == 0) {
-		
+		Command_Pause();
+ 		return Plugin_Handled;// Block the client's messsage from broadcasting
+	}
+	// Unpauses the game
+	if (strcmp(sArgs[0], ".unpause", false) == 0 || strcmp(sArgs[0], "!unpause", false) == 0) {
+		Command_Unpause();
  		return Plugin_Handled;// Block the client's messsage from broadcasting
 	}
 	// Ready up the player's instance
 	if (strcmp(sArgs[0], ".ready", false) == 0 || strcmp(sArgs[0], "!ready", false) == 0) {
-
+		Command_Ready();
  		return Plugin_Handled;// Block the client's messsage from broadcasting
 	}
 	// Unready the player's instance
 	if (strcmp(sArgs[0], ".unready", false) == 0 || strcmp(sArgs[0], "!unready", false) == 0) {
-
+		Command_Unready();
  		return Plugin_Handled;// Block the client's messsage from broadcasting
 	}
 	// Open the gun panel

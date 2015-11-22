@@ -8,13 +8,11 @@
 * https://sm.alliedmods.net/api/index.php?fastload=show&id=35&
 * https://sm.alliedmods.net/api/index.php?fastload=show&id=37&
 * https://forums.alliedmods.net/showthread.php?t=135228
-* 
 */
 
 // sm_guns command
 public Action Command_Guns(int client, int args) {
 	/*
-	Create panel
 	[Weapon preferences]
 	1. [none] ak47|m4a1|m4a4
 	2. [none] usp|p2k|glock|tec9|57|cz75|p250|deagle
