@@ -4,6 +4,13 @@
 #include <clientprefs>
 #include <cstrike>
 
+/*
+* https://sm.alliedmods.net/api/index.php?fastload=show&id=35&
+* https://sm.alliedmods.net/api/index.php?fastload=show&id=37&
+* https://forums.alliedmods.net/showthread.php?t=135228
+* 
+*/
+
 // sm_guns command
 public Action Command_Guns(int client, int args) {
 	/*

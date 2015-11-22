@@ -7,6 +7,7 @@
 new Handle:hDb;
 
 /*
+* https://wiki.alliedmods.net/SQL_%28SourceMod_Scripting%29
 * The database tables are: users, matches
 [users]
 username (varchar)

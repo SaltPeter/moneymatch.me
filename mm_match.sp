@@ -1,3 +1,4 @@
+// The preprocessor directive below requires the user to add semicolons to the end of each statement.
 #pragma semicolon 1
 #include <clientprefs>
 #include <cstrike>
@@ -33,14 +34,21 @@ new bool:theBoolean = playerArray[isReady];
 // Come up with an iterative solution to update the playerArrays to adjust to the constant change of players in the server.
 
 public OnPluginStart() {
-	HookEvent("player_spawn", OnPlayerSpawn); // Event hooks
+	// Event hooks
+	HookEvent("player_spawn", OnPlayerSpawn);
 	
 	// Set !guns command.
 	RegConsoleCmd("sm_guns", Panel_Gun, "Displays gun selection menu.");
-	// Set !ready command.
+	// Set !pause command.
     RegConsoleCmd("sm_pause", Command_Pause, "Requests a pause");
-	// Set !unready command.
+	// Set !unpause command.
     RegConsoleCmd("sm_unpause", Command_Unpause, "Requests an unpause");
+	// Set !ready command.
+	RegConsoleCmd("sm_ready", Command_Ready, "Readies the player");
+	// Set !unready command.
+	RegConsoleCmd("sm_unready", Command_Unready, "Unreadies the player");
+	
+	
 }
 
 public Action OnClientSayCommand(int client, const char[] command, const char[] sArgs) {
