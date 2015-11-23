@@ -45,6 +45,9 @@ public bool:CheckUserMatchValidity() {
 	return true;
 }
 
+/* add a fetchinfo command similar to the helper function used in csgohuge to streamline obtaining information
+from the database */
+
 /*
 Database tables
 [matches]
