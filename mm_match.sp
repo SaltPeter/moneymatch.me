@@ -42,7 +42,10 @@ public OnPluginStart() {
 	}
 	
 	// Server commands
-	ServerCommand("mp_warmuptime 600");
+	// ServerCommand("mp_warmuptime 600");
+	// Server commands don't work for setting the warmup time.
+	// THe only way to set the warmup time might be to change the warmup time in clients.inc
+	// Find a way to change the warmup time from within the moneymatch scripts.
 	
 	// Event hooks
 	HookEvent("player_spawn", OnPlayerSpawn);
