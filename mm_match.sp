@@ -106,6 +106,25 @@ public Action OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast) 
 * aka after the player has been set up
 * if(GetClientTeam(client) == CS_TEAM_CT){}
 
+if round_start(), but not everyone is ready, do:
+- Log the match as cancelled on the database
+- start the process of closing up the server to free an instance for other users
+- If the server is running with 1 user only, kick the users before closing the server and place them on a 10 minute queue
+cooldown in order to prevent them from flooding the quees.
+
+- In order to limit queue traffic:
+	- Users are only allowed to queue if they have made a $5 deposit
+	- Users are only allowed to queue if they meet minimum user requirements (hours, etc.)
+	- All abusers of the service, idlers, queue spammers, are given a cooldown/ban to prevent flooding of queues.
+	- Servers are given a random password for the users to use, in order to join. This prevents users from
+	flooding connection requests to random server ports in an attempt to fill a server. Only the people queued for
+	the server are supposed to know the server password.
+	- Only users with a whitelisted steamid for that specific match are only allowed to join the server, this is meant
+	to limit the possibility of cheating, and to discourage users from cheating with accounts that have value.
+	- maybe implement a minimum account value requirement of $60 in order to discourage users from cheating?
+	
+ServerCommand("quit");
+
 - Disable team selection, the users are already given pre-selected teams before they join the server, disable teamswap.
 If both players leave and return, make sure the server doesn't place them on the wrong team if they return.
 
