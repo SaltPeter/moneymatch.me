@@ -94,14 +94,18 @@ public Action OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast) 
 /*
 * https://sm.alliedmods.net/api/index.php?fastload=show&id=35&
 * https://sm.alliedmods.net/api/index.php?fastload=show&id=37&
+* 
+* Shutdown server script (5 minute timeout)
+* https://forums.alliedmods.net/showthread.php?p=1542241
+* 
 * https://forums.alliedmods.net/showthread.php?t=135228
 * Once the player picks a team and spawns, they're given the "!guns" notification.
 * aka after the player has been set up
 * if(GetClientTeam(client) == CS_TEAM_CT){}
 */
 public Action SpawnHandler(int client) {
-	PrintToChat(client, "\x01\x0B\x05[MM]\x01 Type \x05!pause\x01 when the match is live, to pause the match if necessary. You will only get one pause per game.");
-	PrintHintText(client,"<span style='color:green;'>Type !ready to ready up for the match to go live.</span>");  
+	PrintToChat(client, "Type !pause when the match is live, to pause the match if necessary. You will only get one pause per game.");
+	PrintToChat(client, "Type !ready when you are ready to play. All players must ready up within 5 minutes or else the match is cancelled.");
 	
 	new weaponIdx;
 	
