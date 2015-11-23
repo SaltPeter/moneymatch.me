@@ -1,4 +1,5 @@
-#define MAXPLAYERS 2
+//The max player defined doesn't fucking work at this level, just edit maxplayers at client.inc for sourcemod.
+//#define MAXPLAYERS 2
 // The preprocessor directive below requires the user to add semicolons to the end of each statement.
 #pragma semicolon 1
 #include <clientprefs>
