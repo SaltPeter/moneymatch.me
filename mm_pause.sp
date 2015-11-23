@@ -62,7 +62,7 @@ public Action:Command_Unpause(client, args) {
 
 public Action:Command_Ready(client, args) {
     if(!IsWarmup())
-        return Plugin_Handled;
+    	return Plugin_Handled;
 	else {
 		
 	}
@@ -70,7 +70,7 @@ public Action:Command_Ready(client, args) {
 
 public Action:Command_Unready(client, args) {
     if(!IsWarmup())
-        return Plugin_Handled;
+    	return Plugin_Handled;
 	else {
 	
 	}
@@ -78,7 +78,7 @@ public Action:Command_Unready(client, args) {
 
 stock bool:IsValidClient(client) {
     if(client > 0 && client <= MaxClients && IsClientConnected(client) && IsClientInGame(client))
-        return true;
+    	return true;
     return false;
 }
 
