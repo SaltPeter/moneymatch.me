@@ -55,6 +55,12 @@ Theoretically multiple instances would be running concurrently on a single netwo
 arise. Have these challenges in mind when making a solution.
 */
 
+public Action:CancelMatch(){
+    // update the mysql stuff for the match
+    // cancel the match
+}
+
+
 /*
 Database tables
 [matches]
