@@ -40,13 +40,20 @@ public bool:connectMysqlDatabase() {
     return hDb != INVALID_HANDLE;
 }
 
-public bool:CheckUserMatchValidity() {
-	// Compare the user's steamid to the steamids provided in the match database.
-	return true;
-}
+/* Doing mysql stuff with sourcemod is a clusterfuck, make sure to refer to the documentation for sourcemod and to refer to 
+design patterns used for csgohuge for an idea of how to handle data
+*/
 
 /* add a fetchinfo command similar to the helper function used in csgohuge to streamline obtaining information
 from the database */
+
+/*
+It is desirable to not have the system do any database processing while the clients are playin in a match,
+this is desired in order to limit bandwidth usage and therefore reduce latency for the players.
+
+Theoretically multiple instances would be running concurrently on a single networked computer, so issues with scalability
+arise. Have these challenges in mind when making a solution.
+*/
 
 /*
 Database tables
