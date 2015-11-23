@@ -20,27 +20,8 @@ If user joins the wrong match, instead of being kicked immediately
 the server searches the database for any matching servers with their steamid and redirects them
 */
 
-public Plugin:myinfo = {
-	name = "DraftProSQL",
-	author = "xrlk",
-	description = "MySQL information framework.",
-	version = "0.1",
-	url = "https://csgodraftpro.com"
-}
-
-public OnPluginStart() {
-	if(!connectMysqlDatabase()) {
-        LogError("Unable to connect to mysql database.");
-		PrintToServer("unsuccessful connection error");
-	}
-    else {
-		LogError("Successfully connected to database.");
-		PrintToServer("successful connection");
-	}
-}
-
 public bool:connectMysqlDatabase() {
-    if (hDb != INVALID_HANDLE)
+    if(hDb != INVALID_HANDLE)
         return true;
     
     //declarations
@@ -57,4 +38,9 @@ public bool:connectMysqlDatabase() {
     LogMessage("successful connection");
     PrintToServer("successful connection");
     return hDb != INVALID_HANDLE;
+}
+
+public bool:CheckUserMatchValidity() {
+	// Compare the user's steamid to the steamids provided in the match database.
+	return true;
 }
