@@ -85,13 +85,11 @@ public Action OnClientSayCommand(int client, const char[] command, const char[] 
 	return Plugin_Continue;//Let say continue normally
 }
 
-/*
-* Player spawn event - gives the appropriate weapons to a player for his arena.
-* Warning: do NOT assume this is called before or after the round start event!
-*/
+/* Player spawn event - gives the appropriate weapons to a player for his arena.
+* Warning: do NOT assume this is called before or after the round start event! */
 public Action OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast) {
-	int client = GetClientOfUserId(event.GetInt("userid"));
-	SpawnHandler(client);
+	int client = GetClientOfUserId(event.GetInt("userid"));//Get the user's steamid a gameid and store as an int
+	SpawnHandler(client);//Send the steamid to SpawnHandler to handle data for the player when they spawn.
 }
 
 /*
@@ -137,17 +135,15 @@ public Action SpawnHandler(int client) {
 	PrintToChat(client, "Type !ready when you are ready to play. All players must ready up within 5 minutes or else the match is cancelled.");
 	
 	new weaponIdx;
-	
+	// Loop through all three weapon slots (Primary, Secondary, Knife) and remove these weapons for parity across all users.
 	for(new i = 0; i <= 3; i++) {
 		if((weaponIdx = GetPlayerWeaponSlot(client, i)) != -1) {  
-			RemovePlayerItem(client, weaponIdx);
-			RemoveEdict(weaponIdx);
+			RemovePlayerItem(client, weaponIdx);//Remove the weapon from the player instance.
+			RemoveEdict(weaponIdx);//Remove the weapon across the network.
 		}
 	}
-
+	// Self-explanatory, give the players the proper weapons.
 	GivePlayerItem(client, "weapon_knife");
 	GivePlayerItem(client, "weapon_ak47");
 	GivePlayerItem(client, "weapon_usp_silencer");
-	/* Store player's gun preferences as a cookie in the server.
-	* Add the player's gun preferences to the their user table in the database (MySql).	*/
 }
