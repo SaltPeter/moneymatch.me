@@ -44,3 +44,20 @@ public bool:CheckUserMatchValidity() {
 	// Compare the user's steamid to the steamids provided in the match database.
 	return true;
 }
+
+/*
+Database tables
+[matches]
+matchid
+pending
+cancelled
+winner
+ctscore
+tscore
+ctsteamid
+tsteamid
+
+[users]
+userid
+steamid
+*/
