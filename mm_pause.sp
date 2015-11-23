@@ -64,7 +64,10 @@ public Action:Command_Ready(client, args) {
     if(!IsWarmup())
     	return Plugin_Handled;
 	else {
-		
+	// ready the player, but if they leave then unready them or their instance?
+	// find a way to prevent the game from starting if there are only players on one team.
+	example: no players on CT, all players on T are readied
+	// maybe make it scaleable
 	}
 }
 
