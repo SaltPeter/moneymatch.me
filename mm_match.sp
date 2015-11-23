@@ -105,6 +105,13 @@ public Action OnPlayerSpawn(Event event, const char[] name, bool dontBroadcast) 
 * Once the player picks a team and spawns, they're given the "!guns" notification.
 * aka after the player has been set up
 * if(GetClientTeam(client) == CS_TEAM_CT){}
+
+- Disable team selection, the users are already given pre-selected teams before they join the server, disable teamswap.
+If both players leave and return, make sure the server doesn't place them on the wrong team if they return.
+
+The server should pull the player's steamid and assign its value to their respective team, and then when the player connects
+they should check their steamid against the assigned steamid for the team, if they don't match then don't allow that player to join the team.
+If the player doesnt match any steamids then kick them and ban them from the server instance (assuming the ban would be removed once the server de-instances).
 */
 public Action SpawnHandler(int client) {
 	PrintToChat(client, "Type !pause when the match is live, to pause the match if necessary. You will only get one pause per game.");
